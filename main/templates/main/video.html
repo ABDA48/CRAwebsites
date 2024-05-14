@@ -1,0 +1,127 @@
+{% extends "main/basePage.html" %}
+{% load static %}
+{% block title%} Actualité {%endblock%}
+{% block content %}
+<h1 style="margin-top:100px;" class="text-center text-success">Les Video du FCRA</h1>
+<div class="container" style="margin-top:80px">
+    <div class="row">
+      {% for item in ls  %}
+        <div class="col-lg-4 col-md-12">
+            <div class="card">
+                <iframe class="card-img-top" height="250px" src="{{item.link}}" 
+                title="Fraternity Iftar 2024 honored by HE Andry RAJOELINA,President of the Republic of Madagascar" 
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <div class="card-body">
+                <h5 class="card-title">{{item.title}}</h5>
+                <p class="card-text">
+                  {{item.subtitle}}
+                </p>
+            
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+          
+
+        
+
+          
+
+    </div>
+
+ 
+ 
+    
+<!--
+  <div class="col-lg-4 col-md-12">
+            <div class="card">
+                <iframe class="card-img-top" height="250px" src="https://www.youtube.com/embed/PR-cJao5L30" 
+                title="Fraternity Iftar 2024 honored by HE Andry RAJOELINA,President of the Republic of Madagascar" 
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk
+                  of the card's content.
+                </p>
+                <a href="#"   class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-12">
+            <div class="card">
+                <iframe class="card-img-top" height="250px" src="https://www.youtube.com/embed/PR-cJao5L30" 
+                title="Fraternity Iftar 2024 honored by HE Andry RAJOELINA,President of the Republic of Madagascar" 
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk
+                  of the card's content.
+                </p>
+                <a href="#!"   class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-12">
+            <div class="card">
+                <iframe class="card-img-top" height="250px" src="https://www.youtube.com/embed/PR-cJao5L30" 
+                title="Fraternity Iftar 2024 honored by HE Andry RAJOELINA,President of the Republic of Madagascar" 
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk
+                  of the card's content.
+                </p>
+                <a href="#!"   class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-12">
+            <div class="card">
+                <iframe class="card-img-top" height="250px" src="https://www.youtube.com/embed/PR-cJao5L30" 
+                title="Fraternity Iftar 2024 honored by HE Andry RAJOELINA,President of the Republic of Madagascar" 
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk
+                  of the card's content.
+                </p>
+                <a href="#!"   class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-12">
+            <div class="card">
+              <iframe  height="250px" src="https://www.youtube.com/embed/dGrMYSLQa54" title="GOD WANTS ME TO LEARN SOMTHING "
+               frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk
+                  of the card's content.
+                </p>
+            
+              </div>
+            </div>
+          </div>
+-->
+
+
+ 
+
+
+ {% endblock content %}

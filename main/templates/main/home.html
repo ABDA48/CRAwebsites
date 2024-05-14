@@ -1,0 +1,665 @@
+{% extends "main/basePage.html" %}
+{% load static %}
+{% block title%} Home {% endblock %}
+{% block content %}
+    
+    <header>
+    
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" style="background-image: url({% static "image/2.JPG" %})">
+            <div class="carousel-caption">
+              <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item"  style="background-image: url({% static "image/1.JPG" %})">
+            <div class="carousel-caption">
+              <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item"  style="background-image: url({% static "image/3.JPG" %})">
+            <div class="carousel-caption">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </header>
+    
+    <!-- Page caroussel -->
+   
+    <div id="text-slide" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item text-carousel   active" >
+          <h1 class=" text-center"> Hadith du jour </h1>
+          <h2 class="  text-center">The response to Iran’s unprecedented attack on Israel last week has to be “fierce, severe and inflict a disproportionate toll”, Smotrich told Israel’s Army Radio (GLZ)</h2>
+        </div>
+        <div class="carousel-item text-carousel">
+          <h1 class="  text-center"> Verset du jour </h1>
+          <h2 class="  text-center">Deadly Israeli attacks on occupied West Bank must be investigated: UN</h2>
+        </div>
+      
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#text-slide" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#text-slide" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  
+    <!-- Page caroussel end-->
+    
+
+      
+      <div class="container">
+            <!-- Page News-->
+
+          <h1 class=" text-center headTitle"> Latest News </h1>
+
+           <div class="row">
+
+              <div class="col-md-8">
+                  <div id="news" class="carousel slide  " data-bs-ride="carousel">
+                      <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#news" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#news" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#news" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                      </div>
+                      <div class="carousel-inner">
+                          {% if act.0 %}
+                           
+                            
+                        <div class="carousel-item newsItem active">
+                          <img src="/media/{{act.0.img1}}" class="d-block w-100" alt="...">
+                          <div class="carousel-caption ">
+                            <h5>{{act.0.title}}</h5>
+                            <p>{{act.0.subtitle}}</p>
+                          </div>
+                        </div>
+                        <div class="carousel-item newsItem ">
+                          <img src="/media/{{act.0.img2}}"  class="d-block w-100" alt="...">
+                          <div class="carousel-caption ">
+                            <h5>{{act.0.title}}</h5>
+                            <p>{{act.0.subtitle}}</p>
+                          </div>
+                        </div>
+                        <div class="carousel-item newsItem ">
+                          <img src="/media/{{act.0.img3}}" class="d-block w-100" alt="...">
+                          <div class="carousel-caption ">
+                            <h5>{{act.0.title}}</h5>
+                            <p>{{act.0.subtitle}}</p>
+                          </div>
+                        </div>
+                        
+                        {% endif %}
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#news" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#news" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>
+                    {% if act.0 %}
+
+                    <h1>{{act.0.headline}}</h1>
+
+                   <p> {{act.0.description}} </p>
+                    
+                    
+                    
+                       
+                              {% endif %}
+              </div>
+              <div class="col-md-4">
+                {% if act.1 %}
+                  <div class="row " style="margin-bottom:10px" >
+                      <img src="/media/{{act.1.img1}}" class="d-block w-100"  alt="...">
+                      <h5>{{act.1.title}}</h5>
+                      <p>{{act.1.headline}}</p>
+                  </div>
+                  {% endif %}
+                  {% if act.2 %}
+                  <div class="row" style="margin-bottom:10px">
+                      <img src="/media/{{act.2.img1}}" class="d-block w-100" alt="...">
+                      <h5>{{act.2.title}}</h5>
+                      <p>{{act.2.headline}}</p>
+                  </div>
+                  {% endif %}
+                  {% if act.3 %}
+                  <div class="row" style="margin-bottom:10px">
+                    <img src="/media/{{act.3.img1}}" class="d-block w-100" alt="...">
+                    <h5>{{act.3.title}}</h5>
+                    <p>{{act.3.headline}}</p>
+                </div>
+                {% endif %}
+              </div>
+
+           </div>
+<!-- Page end-->
+ <!-- Page Gallerie-->
+
+ <h1 class=" text-center headTitle"> Gallerie </h1>
+
+              <div
+id="Gallerie"
+data-mdb-carousel-init class="carousel slide carousel-dark text-center"
+data-mdb-ride="carousel"
+>
+<!-- Controls -->
+<div class="d-flex justify-content-center mb-4">
+  <button
+    class="carousel-control-prev position-relative"
+    type="button"
+    data-mdb-target="#Gallerie"
+    data-mdb-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next position-relative"
+    type="button"
+    data-mdb-target="#Gallerie"
+    data-mdb-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- Inner -->
+<div class="carousel-inner py-4">
+  
+  <!-- Single item -->
+  <div class="carousel-item galItem active ">
+    <div class="container">
+      <div class="row">
+        {% if gal.0 %}
+        <div class="col-sm-4   d-md-block">
+          <div class="card">
+            <img
+            src="/media/{{gal.0.img}}"
+            class="card-img-top"
+            alt="Sunset over the Sea"
+          />
+            <div class="card-body">
+              <h5 class="card-title">{{gal.0.title}}</h5>
+              <p class="card-text">
+              {{gal.0.subtitle}}
+              </p>
+              <a href="#"   class="btn btn-primary">Voir</a>
+            </div>
+          </div>
+        </div>
+       {% endif %}
+
+       {% if gal.1 %}
+       <div class="col-sm-4  d-lg-block">
+         <div class="card">
+           <img
+           src="/media/{{gal.1.img}}"
+           class="card-img-top"
+           alt="Sunset over the Sea"
+         />
+           <div class="card-body">
+             <h5 class="card-title">{{gal.1.title}}</h5>
+             <p class="card-text">
+             {{gal.1.subtitle}}
+             </p>
+             <a href="#"   class="btn btn-primary">Voir</a>
+           </div>
+         </div>
+       </div>
+      {% endif %}
+
+      {% if gal.2 %}
+      <div class="col-sm-4   d-lg-block">
+        <div class="card">
+          <img
+          src="/media/{{gal.2.img}}"
+          class="card-img-top"
+          alt="Sunset over the Sea"
+        />
+          <div class="card-body">
+            <h5 class="card-title">{{gal.2.title}}</h5>
+            <p class="card-text">
+            {{gal.2.subtitle}}
+            </p>
+            <a href="#"   class="btn btn-primary">Voir</a>
+          </div>
+        </div>
+      </div>
+     {% endif %}
+         
+      
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- Single item -->
+  <div class="carousel-item  galItem">
+    <div class="container">
+      <div class="row">
+        {% if gal.3 %}
+        <div class="col-sm-4   d-lg-block">
+          <div class="card">
+            <img
+            src="/media/{{gal.3.img}}"
+            class="card-img-top"
+            alt="Sunset over the Sea"
+          />
+            <div class="card-body">
+              <h5 class="card-title">{{gal.3.title}}</h5>
+              <p class="card-text">
+              {{gal.3.subtitle}}
+              </p>
+              <a href="#"   class="btn btn-primary">Voir</a>
+            </div>
+          </div>
+        </div>
+       {% endif %}
+
+       {% if gal.4 %}
+       <div class="col-sm-4   d-lg-block">
+         <div class="card">
+           <img
+           src="/media/{{gal.4.img}}"
+           class="card-img-top"
+           alt="Sunset over the Sea"
+         />
+           <div class="card-body">
+             <h5 class="card-title">{{gal.4.title}}</h5>
+             <p class="card-text">
+             {{gal.4.subtitle}}
+             </p>
+             <a href="#"   class="btn btn-primary">Voir</a>
+           </div>
+         </div>
+       </div>
+      {% endif %}
+
+      {% if gal.5 %}
+      <div class="col-sm-4   d-lg-block">
+        <div class="card">
+          <img
+          src="/media/{{gal.5.img}}"
+          class="card-img-top"
+          alt="Sunset over the Sea"
+        />
+          <div class="card-body">
+            <h5 class="card-title">{{gal.5.title}}</h5>
+            <p class="card-text">
+            {{gal.5.subtitle}}
+            </p>
+            <a href="#"   class="btn btn-primary">Voir</a>
+          </div>
+        </div>
+      </div>
+     {% endif %}
+         
+      
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- Inner -->
+
+</div>
+ <!-- Page Gallerie end-->
+<div>
+  <h1 class=" text-center headTitle"> Books </h1>
+  <div class="row">
+     <div class="col-sm-2" style="overflow:hidden">
+      <img src="{% static "image/img1.jpg" %}"   width="100px" height="150px" />
+       <p>The Mysterious Affair at Styles (Hercule Poirot, #1) </p>
+     </div>
+
+     <div class="col-sm-2" style="overflow:hidden">
+      <img src="{% static "image/img2.jpg" %}"   width="100px" height="150px" />
+       <p>The Mysterious Affair at Styles (Hercule Poirot, #1) </p>
+     </div>
+
+     <div class="col-sm-2" style="overflow:hidden">
+      <img  src="{% static "image/img3.jpg" %}"   width="100px" height="150px" />
+       <p>The Mysterious Affair at Styles (Hercule Poirot, #1) </p>
+     </div>
+
+     <div class="col-sm-2" style="overflow:hidden">
+      <img src="{% static "image/img1.jpg" %}"   width="100px" height="150px" />
+       <p>The Mysterious Affair at Styles (Hercule Poirot, #1) </p>
+     </div>
+
+     <div class="col-sm-2" style="overflow:hidden">
+      <img src="{% static "image/img2.jpg" %}"   width="100px" height="150px" />
+       <p>The Mysterious Affair at Styles (Hercule Poirot, #1) </p>
+     </div>
+     <div class="col-sm-2" style="overflow:hidden">
+      <img  src="{% static "image/img3.jpg" %}"   width="100px" height="150px" />
+       <p>The Mysterious Affair at Styles (Hercule Poirot, #1) </p>
+     </div>
+   
+  </div>
+
+</div>
+ <!-- Page Video -->
+ <h1 class=" text-center headTitle"> Video </h1>
+
+ <div
+ id="Video"
+ data-mdb-carousel-init class="carousel slide carousel-dark text-center"
+ data-mdb-ride="carousel"
+ >
+ <!-- Controls -->
+ <div class="d-flex justify-content-center mb-4">
+   <button
+     class="carousel-control-prev position-relative"
+     type="button"
+     data-mdb-target="#Video"
+     data-mdb-slide="prev"
+   >
+     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+     <span class="visually-hidden">Previous</span>
+   </button>
+   <button
+     class="carousel-control-next position-relative"
+     type="button"
+     data-mdb-target="#Video"
+     data-mdb-slide="next"
+   >
+     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+     <span class="visually-hidden">Next</span>
+   </button>
+ </div>
+ <!-- Inner -->
+ <!-- Inner -->
+<div class="carousel-inner py-4">
+  
+  <!-- Single item -->
+  <div class="carousel-item active">
+    <div class="container">
+      <div class="row">
+        {% if vid.0 %}
+        <div class="col-sm-4    d-lg-block">
+          <div class="card">
+            <iframe class="card-img-top" height="250px" src="{{vid.0.link}}" 
+            title="{{vid.0.title}}" 
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="card-body">
+              <h5 class="card-title">{{vid.0.title}}</h5>
+              <p class="card-text">
+              {{vid.0.subtitle}}
+              </p>
+              <a href="#"   class="btn btn-primary">Voir</a>
+            </div>
+          </div>
+        </div>
+       {% endif %}
+
+       {% if vid.1 %}
+       <div class="col-sm-4    d-lg-block">
+         <div class="card">
+          <iframe class="card-img-top" height="250px" src="{{vid.1.link}}" 
+          title="{{vid.1.title}}" 
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+           <div class="card-body">
+             <h5 class="card-title">{{vid.1.title}}</h5>
+             <p class="card-text">
+             {{vid.1.subtitle}}
+             </p>
+             <a href="#"   class="btn btn-primary">Voir</a>
+           </div>
+         </div>
+       </div>
+      {% endif %}
+
+      {% if vid.2 %}
+      <div class="col-sm-4   d-lg-block">
+        <div class="card">
+          <iframe class="card-img-top" height="250px" src="{{vid.2.link}}" 
+          title="{{vid.2.title}}" 
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div class="card-body">
+            <h5 class="card-title">{{vid.2.title}}</h5>
+            <p class="card-text">
+            {{vid.2.subtitle}}
+            </p>
+            <a href="#"   class="btn btn-primary">Voir</a>
+          </div>
+        </div>
+      </div>
+     {% endif %}
+         
+      
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- Single item -->
+  <div class="carousel-item  ">
+    <div class="container">
+      <div class="row">
+        {% if vid.3 %}
+        <div class="col-sm-4   d-lg-block">
+          <div class="card">
+            <iframe class="card-img-top" height="250px" src="{{vid.3.link}}" 
+            title="{{vid.3.title}}" 
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="card-body">
+              <h5 class="card-title">{{vid.3.title}}</h5>
+              <p class="card-text">
+              {{vid.3.subtitle}}
+              </p>
+              <a href="#"   class="btn btn-primary">Voir</a>
+            </div>
+          </div>
+        </div>
+       {% endif %}
+
+       {% if vid.4 %}
+       <div class="col-sm-4    d-lg-block">
+         <div class="card">
+          <iframe class="card-img-top" height="250px" src="{{vid.4.link}}" 
+          title="{{vid.4.title}}" 
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+           <div class="card-body">
+             <h5 class="card-title">{{vid.4.title}}</h5>
+             <p class="card-text">
+             {{vid.4.subtitle}}
+             </p>
+             <a href="#"   class="btn btn-primary">Voir</a>
+           </div>
+         </div>
+       </div>
+      {% endif %}
+
+      {% if vid.5 %}
+      <div class="col-sm-4   d-lg-block">
+        <div class="card">
+          <iframe class="card-img-top" height="250px" src="{{vid.5.link}}" 
+          title="{{vid.5.title}}" 
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div class="card-body">
+            <h5 class="card-title">{{vid.5.title}}</h5>
+            <p class="card-text">
+            {{vid.5.subtitle}}
+            </p>
+            <a href="#"   class="btn btn-primary">Voir</a>
+          </div>
+        </div>
+      </div>
+     {% endif %}
+         
+      
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- Inner -->
+
+</div>
+ <!-- Inner -->
+ 
+ </div>
+
+
+ <!-- Page Video end-->
+      </div> 
+
+
+ <!-- Footer -->
+<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block">
+      <span>Get connected </span>
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>Company name
+          </h6>
+          <p>
+            Here you can use rows and columns to organize your footer content. Lorem ipsum
+            dolor sit amet, consectetur adipisicing elit.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Products
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Angular</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">React</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Vue</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Laravel</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Pricing</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Settings</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Orders</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Help</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            info@example.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+ 
+  <!-- Copyright -->
+</footer>
+ 
+   
+
+
+
+        
+        {% endblock content %}
+ 

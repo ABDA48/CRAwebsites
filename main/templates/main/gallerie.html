@@ -1,0 +1,67 @@
+{% extends "main/basePage.html" %}
+{% load static %}
+{% block title%} Gallerie {%endblock%}
+{% block content %}
+<h1 style="margin-top:100px;" class="text-center text-success">Les Photos du FCRA</h1>
+<div class="container"  style="margin-top:100px">
+
+   
+<style>
+ div a{
+     margin-bottom:5px;
+ }
+</style>
+
+
+{% for item in ls  %}
+ <section >
+    
+
+      <h1> {{item.title}} </h1>
+      <h5>{{item.description}}</h5>
+    
+      <div class="row">
+        {% for img in item.photos  %}
+       <a href="/media/{{img}}" data-toggle="lightbox" data-gallery="example-gallery2" class="col-sm-4">
+           <img src="/media/{{img}}" class="img-fluid" width="500px" height="500px">
+       </a>
+       {% endfor %}
+   </div>
+
+</section>
+{% endfor %}
+<!--
+     <section >
+     
+
+        <h1> Photos orphelinat 2004 </h1>
+        <h5>Description</h5>
+      
+        <div class="row">
+         <a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+             <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid">
+         </a>
+         <a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+             <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid">
+         </a>
+         <a href="https://unsplash.it/1200/768.jpg?image=253" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+             <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid">
+         </a>
+     </div>
+     <div class="row">
+         <a href="https://unsplash.it/1200/768.jpg?image=254" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+             <img src="https://unsplash.it/600.jpg?image=254" class="img-fluid">
+         </a>
+         <a href="https://unsplash.it/1200/768.jpg?image=255" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+             <img src="https://unsplash.it/600.jpg?image=255" class="img-fluid">
+         </a>
+         <a href="https://unsplash.it/1200/768.jpg?image=256" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+             <img src="https://unsplash.it/600.jpg?image=256" class="img-fluid">
+         </a>
+     </div>
+ </section>
+-->
+
+  </div>
+
+  {% endblock content %}
