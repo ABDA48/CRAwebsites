@@ -2,6 +2,53 @@
 {% load static %}
 {% block title%} Home {% endblock %}
 {% block content %}
+   <style>
+    @keyframes spin2 {
+      from{
+         scale:0.5;
+         
+         transform: translateX(-200px);
+         block:none;
+      }
+      to {
+        scale:1;
+        transform: translateX(0);
+        
+        block:solid;
+      }
+    }
+  
+      @keyframes spin {
+         from{
+            scale:0.5;
+            
+            transform: translateY(500px);
+            block:none;
+         }
+         to {
+           scale:1;
+           transform: translateY(0);
+           
+           block:solid;
+         }
+       }
+       
+       @media (prefers-reduced-motion: no-preference) {
+         @supports (animation-timeline: view()) {
+            .carousel-inner{
+             animation: spin ;
+             animation-timeline: view();
+             animation-range: 25vh 75vh;
+           } 
+           .bookitem{
+            animation: spin2 ease-in-out;
+            animation-timeline: view();
+            animation-range: 25vh 75vh;
+           }
+           
+         }
+       }
+   </style>
     
     <header>
     
@@ -333,31 +380,31 @@ data-mdb-ride="carousel"
 <div>
   <h1 class=" text-center headTitle"> Books </h1>
   <div class="row">
-     <div class="col-sm-2" style="overflow:hidden">
+     <div class="col-sm-2 bookitem" style="overflow:hidden">
       <img src="{% static "image/img1.jpg" %}"   width="100px" height="150px" />
        <p>The Mysterious Affair at Styles (Hercule Poirot, #1) </p>
      </div>
 
-     <div class="col-sm-2" style="overflow:hidden">
+     <div class="col-sm-2 bookitem" style="overflow:hidden">
       <img src="{% static "image/img2.jpg" %}"   width="100px" height="150px" />
        <p>The Mysterious Affair at Styles (Hercule Poirot, #1) </p>
      </div>
 
-     <div class="col-sm-2" style="overflow:hidden">
+     <div class="col-sm-2 bookitem" style="overflow:hidden">
       <img  src="{% static "image/img3.jpg" %}"   width="100px" height="150px" />
        <p>The Mysterious Affair at Styles (Hercule Poirot, #1) </p>
      </div>
 
-     <div class="col-sm-2" style="overflow:hidden">
+     <div class="col-sm-2 bookitem" style="overflow:hidden">
       <img src="{% static "image/img1.jpg" %}"   width="100px" height="150px" />
        <p>The Mysterious Affair at Styles (Hercule Poirot, #1) </p>
      </div>
 
-     <div class="col-sm-2" style="overflow:hidden">
+     <div class="col-sm-2 bookitem" style="overflow:hidden">
       <img src="{% static "image/img2.jpg" %}"   width="100px" height="150px" />
        <p>The Mysterious Affair at Styles (Hercule Poirot, #1) </p>
      </div>
-     <div class="col-sm-2" style="overflow:hidden">
+     <div class="col-sm-2 bookitem" style="overflow:hidden">
       <img  src="{% static "image/img3.jpg" %}"   width="100px" height="150px" />
        <p>The Mysterious Affair at Styles (Hercule Poirot, #1) </p>
      </div>
