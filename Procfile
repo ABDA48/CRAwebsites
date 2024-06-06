@@ -1,1 +1,1 @@
-web: gunicorn sitwebFCRA.wsgi
+web: gunicorn CRAwebsites.wsgi
