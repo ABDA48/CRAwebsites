@@ -1,0 +1,21 @@
+{% for b in books %}
+  
+<div class="col-sm-4" >
+    <div calss="card">
+    
+        <img class="" src="{{b.img.url}}" alt="",height="60%" width="50%" style="margin-left:auto;margin-right:auto;display:block">
+           
+            <div class="mb-2 text-center" >
+                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href=""></a>
+               
+                <a href="{% url "livredetail" id=b.id%}"  class="h6 m-0 text-secondary text-center text-uppercase font-weight-bold">{{b.title}}</a>
+            </div>
+    </div>
+            
+   
+</div>
+
+
+
+
+{% endfor %}

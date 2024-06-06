@@ -1,0 +1,15 @@
+{% if actual %}
+<div class="position-relative mb-3">
+    <img class="img-fluid w-100" src="/media/{{actual.img1}}" style="object-fit: cover;">
+    <div class="bg-white border border-top-0 p-4">
+        <div class="mb-3">
+           
+            <a class="text-body" href="">{{actual.created_at|date:'d M,Y'}}</a>
+        </div>
+        <h1 class="mb-3 text-secondary text-uppercase font-weight-bold">{{actual.headline}}</h1>
+       {{actual.news_description}}
+       
+    </div>
+</div>
+{% endif %}
+

@@ -31,13 +31,15 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    "jazzmin",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'main'
+    'main',
+     "ckeditor"
 ]
 
 MIDDLEWARE = [
@@ -59,6 +61,7 @@ TEMPLATES = [
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
+                "main.context_processor.default",
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
@@ -122,4 +125,25 @@ STATICFILES_DIRS = [
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'skin':'moono',
+        'codeSnippet_theme':'mono',
+        'toolbar': 'all',
+        'extraPlugins':', '.join(
+            [
+                'codesnippet','widget','dialog'
+            ]
+        )
+    }
+}
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+JAZZMIN_SETTINGS={
+    'site_header':"CRA ADMIN NEWS",
+'site_brand':"site admin",
+}
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+X_FRAME_OPTIONS="SAMEORIGINE"

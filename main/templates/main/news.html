@@ -1,0 +1,145 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="container-fluid" style="margin-top:10px">
+        
+        <div class="container">
+            
+            <div class="input-group " style="width: 100%; max-width: 500px;">
+                <label for="search"class=" text-uppercase font-weight-bold " style="margin:auto">SEARCH</label>
+                &nbsp;  &nbsp;&nbsp; &nbsp;
+               
+                <input type="text" name="search" id="news" class="form-control border-0" placeholder="actualité">
+                <div class="input-group-append">
+                    <button class="input-group-text bg-primary text-dark border-0 px-3" id="searchNews"><i
+                            class="fa fa-search"></i></button>
+                </div>
+            </div>
+            <div class="row" style="margin-top:10px">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h4 class="m-0 text-uppercase font-weight-bold"> LES ACTUALITÉS</h4>
+                         
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row" id='news_filter'>
+                        
+                        <!--Single Item -->
+                      
+                        {% for n in news.object_list%}
+
+                        <div class="col-lg-4" >
+                            <div class="position-relative mb-3">
+                                <img class="img-fluid w-100" src="{{n.img1.url}}" style="object-fit: cover;">
+                                <div class="bg-white border border-top-0 p-4">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="{% url "news" id=n.id%}"
+                                            href="">Voir</a>
+                                        <a class="text-body"  href="{% url "news" id=n.id%}"><small>{{n.created_at|date:'d M,Y'}}</small></a>
+                                    </div>
+                                    <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold"  href="{% url "news" id=n.id%}">{{n.headline|truncatechars:50}}</a>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                          
+                        {% endfor %}
+                   
+ <!--End Single Item -->
+                       
+
+                        <!-- END VIDEO-->
+                         <!-- START BOOKS-->
+                         
+                        <!--SINGLE ITEM-->
+                         
+                        <!--END SINGLE ITEM-->
+                         
+                       
+ <!-- END BOOKS
+                      
+                        <div class="col-lg-12">
+                            <div class="row news-lg mx-0 mb-3">
+                                <div class="col-md-6 h-100 px-0">
+                                    <img class="img-fluid h-100" src="{% static "" %}img/news-700x435-5.jpg" style="object-fit: cover;">
+                                </div>
+                                <div class="col-md-6 d-flex flex-column border bg-white h-100 px-0">
+                                    <div class="mt-auto p-4">
+                                        <div class="mb-2">
+                                            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                                href="">Voir</a>
+                                            <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                                        </div>
+                                        <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet elit...</a>
+                                        <p class="m-0">Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
+                                            rebum clita rebum dolor stet amet justo</p>
+                                    </div>
+                                    <div class="d-flex justify-content-between bg-white border-top mt-auto p-4">
+                                        <div class="d-flex align-items-center">
+                                            <img class="rounded-circle mr-2" src="{% static "" %}img/user.jpg" width="25" height="25" alt="">
+                                            <small>John Doe</small>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <small class="ml-3"><i class="far fa-eye mr-2"></i>12345</small>
+                                            <small class="ml-3"><i class="far fa-comment mr-2"></i>123</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+--> 
+
+                        
+                     
+                        
+                    </div>
+                </div>
+                <!-- END -->
+               
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            
+        </div>
+        <div class="col-md-8">
+
+            <nav aria-label="...">
+                <ul class="pagination">
+                    {% if news.has_previous %}
+                  <li class="page-item ">
+                    <a class="page-link" href="{% url 'newslists' %}?page={{ news.previous_page_number }}" tabindex="-1">Previous</a>
+                  </li>
+                  {% endif %}
+                  {% for num_page in news.paginator.page_range %}
+                  {% if news.number == num_page %}
+                  <li class="page-item active">
+                    <a class="page-link" href="{% url 'newslists' %}?page={{ num_page }}">{{num_page }}</a>
+                  </li>
+                  {% else %}
+                  <li class="page-item ">
+                    <a class="page-link" href="{% url 'newslists' %}?page={{ num_page }}">{{num_page }}</a>
+                  </li>
+                  {% endif %}
+                  
+                  {% endfor %}
+              
+                
+                  {% if news.has_next %}
+                  <li class="page-item">
+                    <a class="page-link" href="{% url 'newslists' %}?page={{ news.next_page_number }}">Next</a>
+                  </li>
+                  {% endif %}
+
+                </ul>
+              </nav>
+
+
+        </div>
+    </div>
+  
+    {% endblock content %}

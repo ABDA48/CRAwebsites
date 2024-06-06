@@ -1,0 +1,19 @@
+{% for v in video  %}
+
+<div class="col-lg-6" >
+    <div class="position-relative mb-3">
+       <a class="badge badge-primary font-weight-semi-bold p-2 mr-2 " href="{% url "videodetail" id=v.id%}" style="position:absolute;top:30%;left:50%;cursor: pointer;"><i class="fa fa-play " style="font-size:20px"></i></a>
+        <img class="img-fluid w-100" src="{{v.img.url}}" style="object-fit: cover;">
+        <div class="bg-white border border-top-0 p-4">
+            <div class="mb-2">
+             
+                <a class="text-body"  href="{% url "videodetail" id=v.id%}"><small>{{v.created_at|date:'d M,Y'}}</small></a>
+            </div>
+            <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold"  href="{% url "videodetail" id=v.id%}">{{v.title|truncatechars:150}}</a>
+            
+        </div>
+        
+    </div>
+</div>
+  
+{% endfor %}

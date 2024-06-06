@@ -1,0 +1,120 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<div class="row" style="padding:100px">
+    {% for item in ls  %}
+    <div class="col-lg-6 col-md-6 mb-5">
+       
+        <div class="row">
+            <h1> {{item.title}} </h1>
+            <h5>{{item.description}}</h5>
+                    {% if item.photos %}
+                    {% for img in item.photos  %}
+
+                    <div class="col-4 mb-3">
+                        <a href="#"   data-bs-toggle="modal" data-bs-target="#Lightbox-{{item.id}}">
+                            <img data-bs-target="#lightboxExampleCarousel-{{item.id}}"  class="w-100 h-100 img-fluid" src="/media/{{img}}" alt="">
+                        </a>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% for item in ls  %}
+
+                    
+<div class="modal fade" id="Lightbox-{{item.id}}" tabindex="-1" aria-labelledby="exampleLightboxLabel-{{item.id}}" aria-hidden="true">
+	<div class="modal-dialog modal-xl modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleLightboxLabel-{{item.id}}">{{item.title}}</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div id="lightboxExampleCarousel-{{item.id}}" class="carousel slide">
+					<div class="carousel-inner ratio ratio-16x9 bg-dark">
+                        {% if item.photos %}
+                        {% for img in item.photos  %}
+                        {% if img ==  item.photos.0 %}
+						<div class="carousel-item text-center active">
+							<img src="/media/{{img}}" class="img-fluid mh-100">
+						</div>
+                        {% else %}
+                        <div class="carousel-item text-center  ">
+							<img src="/media/{{img}}" class="img-fluid mh-100">
+						</div>
+                        {% endif %}
+						 
+                        {% endfor %}
+                        {% endif %}
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#lightboxExampleCarousel-{{item.id}}" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#lightboxExampleCarousel-{{item.id}}" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+                   
+
+{% endfor %}
+ 
+ 
+
+<div class="row">
+    <div class="col-md-4">
+        
+    </div>
+    <div class="col-md-8">
+
+        <nav aria-label="...">
+            <ul class="pagination">
+                {% if ls.has_previous %}
+              <li class="page-item ">
+                <a class="page-link" href="{% url 'photos' %}?page={{ ls.previous_page_number }}" tabindex="-1">Previous</a>
+              </li>
+              {% endif %}
+              {% for num_page in ls.paginator.page_range %}
+              {% if ls.number == num_page %}
+              <li class="page-item active">
+                <a class="page-link" href="{% url 'photos' %}?page={{ num_page }}">{{num_page }}</a>
+              </li>
+              {% else %}
+              <li class="page-item ">
+                <a class="page-link" href="{% url 'photos' %}?page={{ num_page }}">{{num_page }}</a>
+              </li>
+              {% endif %}
+              
+              {% endfor %}
+          
+            
+              {% if ls.has_next %}
+              <li class="page-item">
+                <a class="page-link" href="{% url 'photos' %}?page={{ ls.next_page_number }}">Next</a>
+              </li>
+              {% endif %}
+
+            </ul>
+          </nav>
+
+
+    </div>
+</div>
+ 
+
+
+
+  
+ 
+{% endblock content %}

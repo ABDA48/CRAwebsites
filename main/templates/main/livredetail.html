@@ -1,0 +1,68 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="input-group " style="width: 100%; max-width: 500px;margin:10px" >
+        <label for="search"class=" text-uppercase font-weight-bold " style="margin:auto">SEARCH</label>
+        &nbsp;  &nbsp;&nbsp; &nbsp;
+       
+        <input type="text" name="search" id="books" class="form-control border-0" placeholder="books">
+        <div class="input-group-append">
+            <button class="input-group-text bg-primary text-dark border-0 px-3" id="searchbooks"><i
+                    class="fa fa-search"></i></button>
+        </div>
+    </div>
+    {% if book %}
+    <div class="row" style="margin:10px" >
+        
+        <div class="col-sm-4" >
+            <div calss="card">
+                <div class="mb-2 text-center" >
+                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href=""></a>
+                   
+                    <a href=""  class="h6 m-0 text-secondary text-center text-uppercase font-weight-bold">{{book.title}}</a>
+                </div>
+            
+                <img class="" src="{{book.img.url}}" alt="",height="60%" width="50%" style="margin-left:auto;margin-right:auto;display:block">
+                   
+                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-3 mr-3" style="margin-left:auto;margin-right:auto;display:block;margin-top:10px;border:none;"
+                href="{{book.doc.url|safe}}" target="_blank">Telecharger</a>
+            </div>
+                    
+           
+        </div>
+        <div class="col-sm-8" style="margin:auto">
+            {{ book.description|safe }}
+        </div>
+        
+
+    </div>
+    {% endif %}
+    
+<div class="row" id='book_filter'>
+   {% for b in books %}
+  
+                        <div class="col-sm-4" >
+                            <div calss="card">
+                            
+                                <img class="" src="{{b.img.url}}" alt="",height="60%" width="50%" style="margin-left:auto;margin-right:auto;display:block">
+                                   
+                                    <div class="mb-2 text-center" >
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href=""></a>
+                                       
+                                        <a href="{% url "livredetail" id=b.id%}"  class="h6 m-0 text-secondary text-center text-uppercase font-weight-bold">{{b.title}}</a>
+                                    </div>
+                            </div>
+                                    
+                           
+                        </div>
+
+                        
+                        
+
+                  
+                        
+                        {% endfor %}
+                    </div>
+                </div>
+{% endblock %}
